@@ -1,10 +1,16 @@
 # extras_app_web
 
 
-## Setup
+## Configuration and loading 
+### Usage
+
+Start development server
+npm start
+
+### Setup
 
 npm install
 
-## Compile
+### Compile
 
 npm run compile
