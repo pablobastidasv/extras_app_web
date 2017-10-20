@@ -3,11 +3,12 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: [
-    './main.js',
+    './index.js',
   ],
   output: {
-    path: path.join(__dirname, 'www'),
+    path: __dirname,
     filename: 'bundle.js',
+    publicPath: '/www/'
   },
   module: {
     rules: [
@@ -19,6 +20,15 @@ module.exports = {
         ],
       },
     ],
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: "babel",
+      include: __dirname,
+      query: {
+        presets: ['es2015', 'react', 'react-hmre']
+      }
+    }],
   },
   resolve: {
     modules: [
